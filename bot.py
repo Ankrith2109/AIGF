@@ -6,7 +6,7 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 import openai  # Optional for GPT-based responses (You can skip this if not using GPT)
 
 # Initialize OpenAI API key (if using GPT for enhanced conversation)
-openai.api_key = os.getenv('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')  # Store API key securely in environment variables
+openai.api_key = os.getenv('OPENAI_API_KEY')  # Store API key securely in environment variables
 
 # Load or initialize the learning data
 def load_data():
@@ -107,7 +107,7 @@ async def error(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def main() -> None:
     # Initialize the bot with your Telegram API token
-    application = Application.builder().token(os.getenv('8133620231:AAHe3C7r8iGPKfwmDihNYKcUAjT1rgxCo94')).build()
+    application = Application.builder().token(os.getenv('TELEGRAM_API_KEY')).build()
 
     # Command handlers
     application.add_handler(CommandHandler("start", start))
